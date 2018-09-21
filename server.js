@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
  
+//--------- FOR LATER ;) -----------//
 // connection configurations
-const mc = mysql.createConnection({
+/*const mc = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
@@ -12,6 +13,7 @@ const mc = mysql.createConnection({
  
 // connect to database
 mc.connect();
+*/
  
 // default route
 app.get('/', function (req, res) {
