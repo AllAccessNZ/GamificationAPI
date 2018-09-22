@@ -44,9 +44,6 @@ var routes = function (){
         
             connection.query('UPDATE `users` SET `points`=`points`+1 WHERE username = "'+req.body.username+'"', function (error, results, fields) {
                 try {
-                    if (results[0].username == req.body.username){
-                        
-                    }
                 } catch (e) {
                     res.status(200).json("Error");
                 }      
