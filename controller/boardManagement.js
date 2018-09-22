@@ -7,8 +7,9 @@ var routes = function (){
 
     router.route('/getLeaderboard')
     .get(function(req, res){
+        res.setHeader('Access-Control-Allow-Origin', '*');
         // SQL query to find a user from the database
-        connection.query('SELECT username, points from `users` ORDER BY `points` DESC', function (error, results, fields) {
+        connection.query('SELECT * from `users` ORDER BY `points` DESC', function (error, results, fields) {
 
             res.json(results); 
         });
@@ -16,8 +17,10 @@ var routes = function (){
 
     router.route('/getLeader')
     .get(function(req, res){
+        res.setHeader('Access-Control-Allow-Origin', '*');
         connection.query('SELECT username, points from `users` ORDER BY `points` DESC LIMIT 1', function (error, results, fields) {
 
+            res.setHeader('Access-Control-Allow-Origin', '*');
             res.json(results); 
         });
     })

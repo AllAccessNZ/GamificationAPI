@@ -7,6 +7,7 @@ var routes = function (){
     // Create user endpoint
     router.route('/createUser')
         .post(function (req, res){
+            res.setHeader('Access-Control-Allow-Origin', '*');
             // SQL query to check if username exists
             connection.query('SELECT username FROM `users` WHERE users.username LIKE "'+req.body.username+'"', function (error, results, fields) {
                 try {
@@ -32,6 +33,7 @@ var routes = function (){
 
         router.route('/getProfile/:user')
         .get(function(req, res){
+            res.setHeader('Access-Control-Allow-Origin', '*');
             // SQL query to find a user from the database
             connection.query('SELECT * from `users` WHERE `username` LIKE "'+req.params.user+'"', function (error, results, fields) {
 
@@ -41,6 +43,7 @@ var routes = function (){
 
         router.route('/updateScore/:user')
         .put(function(req, res){
+            res.setHeader('Access-Control-Allow-Origin', '*');
         
             connection.query('UPDATE `users` SET `points`=`points`+1 WHERE username = "'+req.body.username+'"', function (error, results, fields) {
                 try {
