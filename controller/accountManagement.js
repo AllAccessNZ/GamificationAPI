@@ -17,7 +17,7 @@ var routes = function (){
                     try {
 
                         // SQL query to insert user into the database
-                        connection.query('INSERT INTO `users`(`image`, `username`, `points`, `rank`) VALUES ("'+req.body.image+'","'+req.body.username+'", 0, 0)', function (error, results, fields) {
+                        connection.query('INSERT INTO `users`(`image`, `username`, `points`) VALUES ("'+req.body.image+'","'+req.body.username+'", 0)', function (error, results, fields) {
 
                             res.status(200).json("Account created"); 
                         });

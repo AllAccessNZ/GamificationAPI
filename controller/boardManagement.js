@@ -8,7 +8,7 @@ var routes = function (){
     router.route('/getLeaderboard')
     .get(function(req, res){
         // SQL query to find a user from the database
-        connection.query('SELECT username, points, rank from `users` ORDER BY `rank`', function (error, results, fields) {
+        connection.query('SELECT username, points from `users` ORDER BY `points` DESC', function (error, results, fields) {
 
             res.json(results); 
         });
@@ -16,7 +16,7 @@ var routes = function (){
 
     router.route('/getLeader')
     .get(function(req, res){
-        connection.query('SELECT username, points, rank from `users` ORDER BY `rank` LIMIT 1', function (error, results, fields) {
+        connection.query('SELECT username, points from `users` ORDER BY `points` DESC LIMIT 1', function (error, results, fields) {
 
             res.json(results); 
         });
